@@ -22,6 +22,17 @@ setInterval(function () {
   sydneyTimeElement.innerHTML = `${sydneyTime.tz("Australia/Sydney").format("h:mm:ss")} <small>${sydneyTime.tz("Australia/Sydney").format("A")}</small>`;
 }, 1000);
 
+setInterval(function () {
+  let moscowElement = document.querySelector("#moscow");
+  let moscowDateElement = moscowElement.querySelector(".date");
+  let moscowTimeElement = moscowElement.querySelector(".time");
+  let moscowTime = moment();
+  moscowDateElement.innerHTML = moscowTime
+    .tz("Europe/Moscow")
+    .format("MMMM Do YYYY");
+  moscowTimeElement.innerHTML = `${moscowTime.tz("Europe/Moscow").format("h:mm:ss")} <small>${moscowTime.tz("Europe/Moscow").format("A")}</small>`;
+}, 1000);
+
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   if (cityTimeZone === "current") {
